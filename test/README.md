@@ -4,36 +4,53 @@ Test project
 Účel/Zadání/Funkce
 -----------------------
 
-* parní mlátička s elektronickým vstřikováním
-    * pára
-    * píst
-    * mikroprocesor
-
+Stovky ktere ukazuji cas na sedmisegmentu pomoci tlacitka zapiname a vypaname stopky.
 
 Schéma zapojení
 -----------------------
 
-![schéma zapojení](./docs/schema.png)
+
+    +3.3V
+      |
+  [Blue-Board STM8S103F3]
+      |
+      |-- PC3 --[100Ω]-- SEG_a --|
+      |-- PC4 --[100Ω]-- SEG_b --|
+      |-- PC5 --[100Ω]-- SEG_c --|  [7-SEG DISPLEJ]
+      |-- PC6 --[100Ω]-- SEG_d --|   Common Cathode
+      |-- PC7 --[100Ω]-- SEG_e --|       |
+      |-- PA1 --[100Ω]-- SEG_f --|      GND
+      |-- PA2 --[100Ω]-- SEG_g --|
+      |
+      |-- PB4 ---[BTN START/STOP]--- GND
+      |-- PB7 ---[BTN LAP]---------- GND
+      |-- PD3 ---[BTN MODE]--------- GND
+      |
+      |-- PB5 --- (onboard LED — již zapojeno)
+      |
+      |-- PD5 (TX) --> RX [USB-UART] --> USB --> PC (pyserial)
+      |
+     GND
+
 
 Popis funkce
 -----------------------
 
-1. ono se to
-2. samo se to
+pomoci tlacitka se zacnou na sedmisegmentu pocitat sekundy
+po opetovnem stisknuti tlacitka se cas stopne a na sedmisegmentu budu svitit dany cas 
+
 
 ToDo
 -----------------------
 
-* ještě chybí tamto
+chybi vyresit problem s tim ze kdyz zmacknu tlacitko v nejakem bode tak ty svetelka neustale sviti i pres reset funkce.
 
 Zhodnocení
 -----------------------
 
-Na tomto projektu jsem se naučíl jedno a druhé a došlo mi jak funguje třetí.
-Zlepšil jsem se v tamtom.
+Na tomto projektu jsem se naučíl to ze nikdy nevim jestli je problem v zapojeni nebo v programu a naucil jsem se vyuzivat ruzne prislusenstvi ktere mi ukazalo jestli to funguje nebo ne.
 
-Svou práci bych ohodnotil chvalitebně, protože jsem nepracoval úplně samostatně,
-ale vše jsem implementoval a prozkoumal.
+Svou práci bych ohodnotil vyborne protoze ten cas a usily ktere jsou do toho dal tak mne urcite nejak posunulo ku predu a u tehle prace mne opravdu bavilo kombinot fyzickou vec s programem.
 
-Svou práci bych ohodnotil výborně. Nepracoval jsem sice samostatně,
-ale nakonec jsem hotový projekt smazal a vytvořil ho celý znovu sám.
+Svou práci bych ohodnotil výborně. Nepracoval jsem sice samostatně pozadal jsme si o pomoc od kamarada ale to bylo jenom ze zacatku zbytek jsem dodelaval sam.
+
